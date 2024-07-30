@@ -54,5 +54,6 @@ lazy val projectSettings = Seq(
   developers := List(
     Developer("augustjune", "Yura Slinkin", "jurij.jurich@gmail.com", url("https://github.com/augustjune"))
   ),
-  scalaVersion := "2.13.14"
+  scalaVersion := "2.13.14",
+  ThisBuild / versionScheme := Some("early-semver")
 )
