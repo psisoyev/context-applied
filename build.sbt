@@ -42,14 +42,7 @@ lazy val test = project
       "-language:postfixOps",
       "-language:implicitConversions",
       "-Ywarn-value-discard" // Warn when non-Unit expression results are unused.
-    ) ++  (if (scalaBinaryVersion.value.startsWith("2.11")) Nil else List(
-      "-Ywarn-unused:implicits", // Warn if an implicit parameter is unused.
-      "-Ywarn-unused:imports", // Warn if an import selector is not referenced.
-      "-Ywarn-unused:locals", // Warn if a local definition is unused.
-      "-Ywarn-unused:params", // Warn if a value parameter is unused.
-      "-Ywarn-unused:patvars", // Warn if a variable bound in a pattern is unused.
-      "-Ywarn-unused:privates", // Warn if a private member is unused.
-    ))
+    )
   )
 
 lazy val projectSettings = Seq(
@@ -59,6 +52,5 @@ lazy val projectSettings = Seq(
   developers := List(
     Developer("augustjune", "Yura Slinkin", "jurij.jurich@gmail.com", url("https://github.com/augustjune"))
   ),
-  scalaVersion := "2.13.14",
-  crossScalaVersions := Seq(scalaVersion.value, "2.12.10", "2.11.12")
+  scalaVersion := "2.13.14"
 )
