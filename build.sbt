@@ -46,7 +46,6 @@ lazy val test = project
   )
 
 lazy val projectSettings = Seq(
-  resolvers += "Sonatype OSS Snapshots" at "https://s01.oss.sonatype.org/content/repositories/snapshots",
   ThisBuild / publishTo := {
     val nexus = "https://s01.oss.sonatype.org/"
     if (isSnapshot.value) Some("snapshots" at nexus + "content/repositories/snapshots")
