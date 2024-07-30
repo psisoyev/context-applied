@@ -46,12 +46,13 @@ lazy val test = project
   )
 
 lazy val projectSettings = Seq(
-    ThisBuild / publishTo := {
+  resolvers += "Sonatype OSS Snapshots" at "https://s01.oss.sonatype.org/content/repositories/snapshots",
+  ThisBuild / publishTo := {
     val nexus = "https://s01.oss.sonatype.org/"
     if (isSnapshot.value) Some("snapshots" at nexus + "content/repositories/snapshots")
     else Some("releases" at nexus + "service/local/staging/deploy/maven2")
   },
-  organization := "com.psisoyev", // changed to avoid the confusion, this is a fork, I'm not the author
+  organization := "io.github.psisoyev", // changed to avoid the confusion, this is a fork, I'm not the author
   licenses ++= Seq(("MIT", url("http://opensource.org/licenses/MIT"))),
   homepage := Some(url("https://github.com/augustjune/context-applied")),
   developers := List(
