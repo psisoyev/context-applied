@@ -46,8 +46,11 @@ lazy val test = project
   )
 
 lazy val projectSettings = Seq(
-  ThisBuild / sonatypeCredentialHost := "s01.oss.sonatype.org",
-  sonatypeRepository := "https://s01.oss.sonatype.org/service/local",
+    ThisBuild / publishTo := {
+    val nexus = "https://s01.oss.sonatype.org/"
+    if (isSnapshot.value) Some("snapshots" at nexus + "content/repositories/snapshots")
+    else Some("releases" at nexus + "service/local/staging/deploy/maven2")
+  },
   organization := "com.psisoyev", // changed to avoid the confusion, this is a fork, I'm not the author
   licenses ++= Seq(("MIT", url("http://opensource.org/licenses/MIT"))),
   homepage := Some(url("https://github.com/augustjune/context-applied")),
