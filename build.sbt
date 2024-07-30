@@ -3,7 +3,7 @@ lazy val `context-applied` = project
   .dependsOn(core, test)
   .aggregate(core, test)
   .settings(
-    skip.in(publish) := true,
+    publish / skip := true,
     projectSettings,
     crossScalaVersions := Nil
   )
@@ -28,7 +28,7 @@ lazy val test = project
   .in(file("test"))
   .dependsOn(core)
   .settings(
-    skip.in(publish) := true,
+    publish / skip := true,
     projectSettings,
     addCompilerPlugin("org.typelevel" % "kind-projector" % "0.13.3" cross CrossVersion.full),
     libraryDependencies += "com.novocode" % "junit-interface" % "0.11" % Test,
